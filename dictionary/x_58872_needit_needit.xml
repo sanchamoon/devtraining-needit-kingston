@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element audit="true" label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="low" label="Priority" max_length="40" name="u_priority" type="string">
+            <choice>
+                <element label="1 - Critical" sequence="0" value="critical"/>
+                <element label="2 - High" sequence="1" value="high"/>
+                <element label="3 - Medium" sequence="2" value="medium"/>
+                <element label="4 - Low" sequence="3" value="low"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="legal" label="Requested type" mandatory="true" max_length="40" name="u_requestedtype" type="string">
+            <choice>
+                <element label="Human Resources" sequence="0" value="hr"/>
+                <element label="Facilities" sequence="1" value="facilities"/>
+                <element label="Legal" sequence="2" value="legal"/>
+                <element label="Your Department Choise" sequence="3" value="you_choice"/>
+            </choice>
+        </element>
+        <element label="Requested for" mandatory="true" max_length="32" name="u_requested_for" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="requested" label="State" mandatory="true" max_length="40" name="u_state" type="string">
+            <choice>
+                <element label="Open" sequence="0" value="open"/>
+                <element label="Work in Progress" sequence="1" value="in progress"/>
+                <element label="Requested" sequence="2" value="requested"/>
+                <element label="Awaiting Approval" sequence="3" value="awaiting_approval"/>
+                <element label="Approved" sequence="4" value="approved"/>
+                <element label="Awaiting Feedback" sequence="5" value="feedback"/>
+                <element label="Withdrawn" sequence="6" value="withdrawn"/>
+                <element label="Closed Complete" sequence="7" value="closed"/>
+                <element label="Closed skipped" sequence="8" value="skipped"/>
+                <element label="Closed Incomplete" sequence="9" value="incomplete"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="legal1" label="What needed" mandatory="true" max_length="40" name="u_what_needed" type="string">
+            <choice>
+                <element label="Human Resources 1" sequence="0" value="hr1"/>
+                <element label="Human Resources 2" sequence="1" value="hr2"/>
+                <element label="Facilities 1" sequence="2" value="facilities1"/>
+                <element label="Facilities 2" sequence="3" value="facilities2"/>
+                <element label="Legal 1" sequence="4" value="legal1"/>
+                <element label="Legal 2" sequence="5" value="legal2"/>
+                <element label="Your Department Choice 1" sequence="6" value="your_choice1"/>
+                <element label="Your Department Choice 2" sequence="7" value="your_choice2"/>
+            </choice>
+        </element>
+        <element label="When needed" mandatory="true" max_length="40" name="u_when_needed" type="glide_date_time"/>
+        <index name="index">
+            <element name="u_requested_for"/>
+        </index>
+    </element>
+</database>
